@@ -36,7 +36,7 @@ const userSchema = new Schema({
         type: String,
         default: "",
         required: [true, 'Verify token is required'],
-      }
+      },
 }, {versionKey: false, timestamps: true});
 
 userSchema.post('save', handleMongooseError );
@@ -52,6 +52,7 @@ const emailSchema = Joi.object({
 
 const schemas = {
     registerAndLoginSchema,
+    emailSchema,
 }
 
 const User = model("user", userSchema);
@@ -59,5 +60,4 @@ const User = model("user", userSchema);
 module.exports = {
     User,
     schemas,
-    emailSchema,
 }
